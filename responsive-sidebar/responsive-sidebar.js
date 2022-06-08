@@ -22,11 +22,11 @@ light.addEventListener("click", () => {
 
 const listItem = document.querySelectorAll(".list-item");
 
-for (let i = 0; i < listItem.length; i++) {
-    const element = listItem[i];
-    element.addEventListener("click", () => {
-        const current = document.getElementsByClassName("active")[0];
-        current.className = current.className.replace(" active", "");
-        element.className += " active";
+listItem.forEach((item) => {
+    item.addEventListener("click", () => {
+        listItem.forEach((element) => {
+            element.classList.remove("active");
+        });
+        item.classList.add("active");
     });
-};
+});
